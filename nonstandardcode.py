@@ -137,12 +137,7 @@ for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
 
 from sklearn.model_selection import GridSearchCV
 
-param_grid = [
-    # try 12 (3×4) combinations of hyperparameters
-    {'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},
-    # then try 6 (2×3) combinations with bootstrap set as False
-    {'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2, 3, 4]},
-  ]
+param_grid = [{'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},{'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2, 3, 4]}]
 
 forest_reg = RandomForestRegressor(random_state=42)
 # train across 5 folds, that's a total of (12+6)*5=90 rounds of training 
